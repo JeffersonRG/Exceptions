@@ -12,9 +12,9 @@ Random random = new Random();
 //A random integer between 2 and 29 (inclusive) generated using the Random.Next method.
 int myInt = random.Next(2, 30);
 
-//The code attempts to divide myFloat by myOtherFloat. Since myOtherFloat is 0.0f, this will throw a DivideByZeroException.
-//The caught exception is then handled by printing an error message and prompting the user to enter a new non- zero value for myOtherFloat.
-//The code then attempts the division again using the new myOtherFloat value.
+//MyFloat and myOtherFloat are divided by the code. MyOtherFloat being zero, this will result in a DivideByZeroException being raised.
+//After handling the caught exception, the user is prompted to provide a new, non-zero value for myOtherFloat and an error message is printed.
+//The division is then attempted once more by the code using the updated myOtherFloat value.
 try
 {
     result = Divide(myFloat, myOtherFloat);
@@ -25,7 +25,7 @@ catch (Exception e)
     Console.WriteLine("please enter a number other than zero.");
     myOtherFloat = (float)Convert.ToDouble(Console.ReadLine());
 
-    //If the second division attempt still results in an exception, the message from the second exception is printed.
+    //The message from the second exception is printed if the second division attempt still produces an exception.
     try
     {
         result = Divide(myFloat, myOtherFloat);
@@ -35,14 +35,14 @@ catch (Exception e)
         Console.WriteLine(e2.Message);
     }
 }
-//This block will always execute regardless of whether an exception was thrown or not. It prints a message indicating the completion of calculations and the value of the result.
+//Whether or whether an exception was raised, this block will always be executed. When the calculations are finished, a message is printed along with the value of the outcome.
 finally
 {
     Console.WriteLine("Calculations completer with a result of " + result);
 }
 
-//The code attempts to call the CheckAge method with the myInt value.
-//If the CheckAge method throws an exception (because myInt is less than 17), it catches the exception and prints a message indicating that the user is not old enough to play mature games.
+//The code tries to use the value of myInt to invoke the CheckAge function.
+//The user is not old enough to play mature games, according to the message printed if the CheckAge function produces an exception (since myInt is less than 17).
 try
 {
     CheckAge(myInt);
@@ -52,7 +52,7 @@ catch
     Console.WriteLine($"You are {myInt}, not old enough!");
 }
 
-//This method checks if the divisor (y) is zero. If it is, it throws a DivideByZeroException. Otherwise, it returns the result of dividing x by y.
+//This procedure verifies that the divisor (y) is zero. If it is, a DivideByZeroException is thrown. In all other cases, it outputs the outcome of dividing x by y
 static float Divide(float x, float y)
 {
     if(y == 0)
